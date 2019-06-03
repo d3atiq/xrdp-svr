@@ -13,7 +13,7 @@
 - name: install xrdp-pulseaudio v11.1 modules
   become: true
   copy:
-    src: "{{ role_path }}/files/xrdp/pulseaudio-11.1/modules/"
+    src: "{{ role_path }}/files/bionic/xrdp/pulseaudio-11.1/modules/"
     dest: "/var/lib/xrdp-pulseaudio-installer/"
     owner: root
     group: root
