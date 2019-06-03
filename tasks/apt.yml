@@ -1,0 +1,10 @@
+---
+# tasks file for xrdp-svr package installation
+
+- name: Install RDP remote access support apt packages
+  become: true
+  apt:
+    update_cache: true
+    name: xrdp
+    state: present
+  notify: start xrdp

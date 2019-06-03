@@ -1,0 +1,13 @@
+---
+# tasks file for xrdp-svr colord bug fix
+# (Ref: http://c-nergy.be/blog/?p=12043)
+
+- name: add policy to authorize colord for all users
+  become: true
+  template: 
+    src: colord.j2
+    dest: "/etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart xrdp

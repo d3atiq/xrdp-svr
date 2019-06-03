@@ -1,0 +1,14 @@
+---
+# handlers file for xrdp-svr
+
+- name: start xrdp
+  become: true
+  service:
+    name: xrdp
+    state: started
+
+- name: restart xrdp
+  become: true
+  service:
+    name: xrdp
+    state: restarted

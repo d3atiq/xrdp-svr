@@ -1,0 +1,6 @@
+---
+# tasks file for xrdp-svr
+
+- include_tasks: apt.yml
+- include_tasks: xrdp-pulseaudio.yml
+- include_tasks: colord.yml

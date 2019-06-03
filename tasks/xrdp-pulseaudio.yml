@@ -1,0 +1,21 @@
+---
+# tasks file for xrdp-svr xrdp-pulseaudio interoperability
+# (Ref: https://neu.lu/2018/05/ubuntu-desktop-18.04-mit-xrdp-und-sound/)
+# N.B. In addition to the above ref, must also do the following:
+# Before:
+# cp -p /etc/apt/sources.list /etc/apt/sources.list.original
+# sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list
+# apt-get update
+# After:
+# mv /etc/apt/sources.list.original /etc/apt/sources.list
+# apt-get clean
+
+- name: install xrdp-pulseaudio v11.1 modules
+  become: true
+  copy: 
+    src: "{{ role_path }}/files/xrdp/pulseaudio-11.1/modules/"
+    dest: "/var/lib/xrdp-pulseaudio-installer/"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart xrdp
