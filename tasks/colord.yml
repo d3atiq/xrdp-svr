@@ -4,7 +4,7 @@
 
 - name: add policy to authorize colord for all users
   become: true
-  template: 
+  template:
     src: colord.j2
     dest: "/etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla"
     owner: root
